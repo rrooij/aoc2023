@@ -21,7 +21,7 @@ fn main() {
         for digit in &digit_words {
             clean_line = clean_line.replace(digit, word_mapping[digit]);
         }
-        let numbers: Vec<char> = clean_line.chars().filter(|character | character.to_digit(10).is_some()).collect();
+        let numbers: Vec<char> = clean_line.chars().filter(|character | character.is_ascii_digit()).collect();
         let last_idx = numbers.len() - 1;
         format!("{}{}", numbers[0], numbers[last_idx]).parse::<u32>().unwrap()
     });
