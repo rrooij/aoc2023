@@ -5,7 +5,7 @@ for line in f:
     game_line = line.split(": ")[1]
     tries = game_line.split(";")
     cube_info = {"green": 13, "blue": 14, "red": 12}
-    invalid = False
+    valid = True
     for try_ in tries:
         cubes_raw = try_.split(", ")
         for cube_raw in cubes_raw:
@@ -13,7 +13,7 @@ for line in f:
             amount = int(cube[0])
             color = cube[1]
             if amount > cube_info[color]:
-                invalid = True
-    if not invalid:
+                valid = False
+    if valid:
         valid_games.append(game_id)
 print(sum(valid_games))
