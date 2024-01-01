@@ -24,6 +24,6 @@ main = do
   let nodeLines = drop 2 fileLines
   let nodes = parseLines nodeLines
   let mapping = Map.fromList nodes
-  let initialNode = Node "GQR" "SSS" "AAA"
+  let initialNode = mapping Map.! "AAA"
   let count = parseNode mapping repeatedInstructions initialNode 0
   putStrLn $ "The count is " ++ show count
